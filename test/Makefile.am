@@ -19,7 +19,11 @@ endif
 EXTRA_PROGRAMS = regress
 noinst_HEADERS = tinytest.h tinytest_macros.h regress.h tinytest_local.h
 
-TESTS = $(top_srcdir)/test/test.sh
+TESTS = run-tests.sh
+TESTS_ENVIRONMENT = NO_MAKE=yes TESTS_DIR="$(top_builddir)/test"
+
+echo-tests-dir:
+	@echo $(top_builddir)/test
 
 BUILT_SOURCES =
 if BUILD_REGRESS
